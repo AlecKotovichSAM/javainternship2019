@@ -17,8 +17,6 @@ import javax.servlet.http.HttpServletResponse;
 public class ThreadPerRequestServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
-	public static String DIGITS = "0123456789";
-
 	private ThreadLocal<String> myBankCard = new ThreadLocal<>();
 
 	/**
@@ -36,7 +34,7 @@ public class ThreadPerRequestServlet extends HttpServlet {
 	private String generateCardNumber() {
 		StringBuilder stringBuilder = new StringBuilder();
 		IntStream.rangeClosed(1, 16).forEach(x -> //
-		stringBuilder.append((DIGITS.charAt(new Random().nextInt(10)))));
+		stringBuilder.append(new Random().nextInt(10)));
 		return stringBuilder.toString();
 	}
 
