@@ -1,4 +1,4 @@
-package com.samsolutions.task1;
+package com.samsolutions.task1.singletonservlet;
 
 import java.io.IOException;
 
