@@ -4,8 +4,9 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Task 1 :: Servlet with JSP</title>
+<title>Task 1 :: Dispatcher Servlet</title>
 </head>
-<body>Hello, I am JSP!
+<body>View 1
+<jsp:include page="gohome.jsp"></jsp:include>
 </body>
 </html>
