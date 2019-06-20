@@ -1,7 +1,6 @@
 package com.samsolutions.task1.withjsp;
 
 import java.io.IOException;
-import java.util.Map;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -13,7 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 /**
  * Servlet implementation class ServletWithJSP2
  */
-@WebServlet("/servletWithJsp2")
+@WebServlet("/servletWithJsp2") 
 public class ServletWithJSP2 extends HttpServlet {
 
 	/**
