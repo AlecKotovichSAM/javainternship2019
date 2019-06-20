@@ -6,9 +6,16 @@
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Task 1 :: Servlet with JSP</title>
 </head>
-<body>Hello, I am JSP-2!
-<br/>
-Parameters: 
-<%request.getParameterMap().forEach((k, v) -> {try {out.println(k + " : " + v);} catch(Exception e){}});%>
+<body>
+	Hello, I am JSP-2!
+	<br /> Parameters:
+	<%
+	request.getParameterMap().forEach((k, v) -> {
+		try {
+			response.getOutputStream().println(k + " : " + v[0] + "<br>");
+		} catch (Exception e) {
+		}
+	});
+%>
 </body>
 </html>

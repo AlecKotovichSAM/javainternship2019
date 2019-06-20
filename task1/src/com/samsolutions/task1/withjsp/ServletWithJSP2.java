@@ -1,6 +1,7 @@
 package com.samsolutions.task1.withjsp;
 
 import java.io.IOException;
+import java.util.Map;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -24,8 +25,8 @@ public class ServletWithJSP2 extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
-		// resp.sendRedirect("hello2.jsp"); // uncomment for demo
-
+		// response.sendRedirect("hello2.jsp"); // uncomment for demo
+		
 		// comment for demo
 		RequestDispatcher requestDispatcher = request.getRequestDispatcher("hello2.jsp");
 		requestDispatcher.forward(request, response);
