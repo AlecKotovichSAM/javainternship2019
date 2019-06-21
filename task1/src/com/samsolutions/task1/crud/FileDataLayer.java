@@ -10,6 +10,7 @@ import java.nio.file.StandardOpenOption;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
+import java.util.Collections;
 import java.util.List;
 import java.util.ListIterator;
 
@@ -111,7 +112,12 @@ public class FileDataLayer implements IDataLayer {
 	@Override
 	public Collection<String> readAllLines() {
 		try {
-			return Files.readAllLines(tmpFile).subList(1, (int) Files.lines(tmpFile).count());
+			List<String> readAllLines = Files.readAllLines(tmpFile);
+			if (readAllLines == null || readAllLines.size() == 0) {
+				return Collections.emptyList();
+			} else {
+				return readAllLines.subList(1, (int) Files.lines(tmpFile).count());
+			}
 		} catch (IOException e) {
 			e.printStackTrace();
 		}

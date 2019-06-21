@@ -42,10 +42,13 @@ public class CrudServlet extends HttpServlet implements ICrud<String, Long> {
 		if (request.getParameter("id") != null) {
 			response.getWriter().append(read(Long.valueOf(request.getParameter("id"))));
 		} else {
+			Collection<String> findAll = findAll();
 			response.getWriter()
-					.append(findAll() //
+					.append(findAll //
 							.stream() //
 							.collect(Collectors.joining(",")));
+			request.setAttribute("all", findAll);
+			request.getRequestDispatcher("crud.jsp").forward(request, response);
 		}
 	}
 
@@ -55,6 +58,16 @@ public class CrudServlet extends HttpServlet implements ICrud<String, Long> {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+		String method = request.getParameter("_method");
+		if (method != null) {
+			if ("PUT".equalsIgnoreCase(method)) {
+				doPut(request, response);
+			}
+			if ("DELETE".equalsIgnoreCase(method)) {
+				doDelete(request, response);
+			}
+			return;
+		}
 		response.getWriter().append(String.valueOf(create(request.getParameter("data"))));
 	}
 
