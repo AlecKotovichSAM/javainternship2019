@@ -28,7 +28,7 @@ public class NoJSPServlet extends HttpServlet {
 				.append("</head>") //
 				.toString();
 		String text = "Hello, SaM Solutions!";
-		String bodyOpen = "<body>";
+		String bodyOpen = "<body style=\"background-color: #FFFF00; color: #FF0000; font-size: 48; font-weight: bold; margin: 200px\">";
 		String bodyClose = "</body>";
 		String body = new StringBuilder() //
 				.append(bodyOpen).append(text) //
